@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Caso 01</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Play', sans-serif;
+        }
+
+        .pontuacao {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin-right: 5%;
+        }
+    </style>
+    <script>
+        function esconder(){
+            document.getElementById('proximo').style.display='none'
+            sessionStorage.setItem('pontos', 0)
+        }
+    </script>
+</head>
+
+<body onload="esconder()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center h2 p-4">Caso 01: Sua secretária mentiu?</div>
+            <div class="col-12 text-center pt-1">
+                <img src="img/4d0b2a32d0afd5b.png"
+                    alt="Arte que mostra duas pessoas de costas bebendo um café, um homem e uma mulher" width="40%"
+                    class="img-fluid rounded">
+            </div>
+            <div class="col-3"></div>
+            <div class="col-6">
+                <p class="pt-4 text-left">
+                    Contextualização do caso:
+                    <br>
+                    Toda vez que desejamos recuperar uma informação de um banco de dados devemos utilizar um comando
+                    chamado:
+                    <code>SELECT</code>
+                    <br>
+                    O <code>SELECT</code> serve para selecionar informações de uma tabela.
+                    <br>
+                    Para ser possível utilizar o <code>SELECT</code> é necessário ter uma base de dados com tabelas.
+                    <br>
+                    Portanto, vamos iniciar pegando a pasta com o nosso caso.
+                    <br>
+                    Para isso, digite: <code>USE PASTA;</code>
+                    <br>
+                </p>
+                <form>
+                    <div class="form-group">
+                        <label for="resposta">Query:</label>
+                        <input type="text" class="form-control" id="resposta"
+                            placeholder="Digite aqui...">
+                    </div>
+                    <button type="button" class="btn btn-warning" onclick="verifica()">Executar</button>
+                </form>
+                <br>
+                <br>
+                <p id="feedback"></p>
+                <br>
+                <br>
+                <a href="2.html"><button id="proximo" type="button" class="btn btn-secondary">Avançar</button></a>
+                <br>
+                <br>
+            </div>
+            <div class="col-3">
+                <p class="pontuacao">
+                    Pontuação:
+                    <br>
+                    <i id="pontos">0</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function verifica(){
+            var resposta = document.getElementById('resposta').value
+            resposta = resposta.toUpperCase()
+            if(resposta == 'USE PASTA;'){
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos'))+10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Base de dados selecionada com sucesso!
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else {
+                alert('Tente novamente!')
+            }
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

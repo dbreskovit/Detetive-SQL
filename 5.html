@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Caso 01</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Play', sans-serif;
+        }
+
+        .pontuacao {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin-right: 5%;
+        }
+    </style>
+    <script>
+        function esconder() {
+            document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+        }
+    </script>
+</head>
+
+<body onload="esconder()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center h2 p-4">Caso 01: Sua secretária mentiu?</div>
+            <div class="col-12 text-center pt-1">
+                <img src="img/1a138f43a00a6ac.png"
+                    alt="Desenho de uma pessoa" width="40%"
+                    class="img-fluid rounded">
+            </div>
+            <div class="col-3"></div>
+            <div class="col-6">
+                <p class="pt-4 text-left">
+                    Relatório
+                    <br>
+                    Mensagem do delegado: 
+                    <br>
+                    Maria realmente não mentiu, naquele dia ela correu para arrumar tudo pra viagem.
+                    <br>
+                    Acabou caindo e acordou depois, zonza, foi ao hospital com ajuda do dono da padaria da esquina.
+                    <br>
+                    Antônio não viu isso, mas o padeiro confirmou tudo.
+                    <br>
+                    Ela esqueceu o casamento da irmã e lembrou-se depois.
+                    <br>
+                    Ao dar alta do hospital foi com o padeiro para comer algo. Chegou à noite em casa.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Obrigado por jogar este tutorial! Verifique sua pontuação final.
+                    <br>
+                    Futuramente novas fases poderão ser adicionadas.
+                    <br>
+                    Créditos das artes:
+                    <br>
+                    <a target="_blank" href="https://www.pixilart.com/blackhawk">@blackhawk</a>
+                    <br>
+                    Desenvolvido por Alexandre e Uianes, do mestrado em Tecnologias Educacionais - UFSM.
+                </p>
+                
+            </div>
+            <div class="col-3">
+                <p class="pontuacao">
+                    Pontuação:
+                    <br>
+                    <i id="pontos">0</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

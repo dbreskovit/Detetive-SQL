@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Caso 01</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Play', sans-serif;
+        }
+
+        .pontuacao {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin-right: 5%;
+        }
+    </style>
+    <script>
+        function esconder() {
+            document.getElementById('proximo').style.display = 'none'
+            document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+        }
+    </script>
+</head>
+
+<body onload="esconder()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center h2 p-4">Caso 01: Sua secretária mentiu?</div>
+            <div class="col-12 text-center pt-1">
+                <img src="img/e971798d30ebd1b.png"
+                    alt="Arte que mostra um escritório" width="40%"
+                    class="img-fluid rounded">
+            </div>
+            <div class="col-3"></div>
+            <div class="col-6">
+                <p class="pt-4 text-left">
+                    Agora que você sabe as tabelas que existem na base de dados "Pasta", você pode usar cada Ficha
+                    (tabela).
+                    <br>
+                    Há duas formas de fazer este processo:
+                    <br>
+                    Exemplo 01:
+                    <code>DESCRIBE nomeDaTabela;</code>
+                    <br>
+                    Fará a descrição das informações (campos).
+                    <br>
+                    ou
+                    <br>
+                    Exemplo 02: <code>SELECT * FROM nomeDaTabela;</code>
+                    <br>
+                    O <code>*</code> informa que você quer ver todos os dados (registros) de uma ficha (tabela). Assim
+                    você pode ver/ler todos os dados de uma tabela.
+                    <br>
+                    Observação 1: Você pode executar o <code>SHOW TABLES;</code> para ver novamente as informações
+                    anteriores.
+                    <br>
+                    Observação 2: Ao clicar em "Avançar" você irá para ser redirecionado ao relatório final deste caso.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <label for="resposta">Query:</label>
+                        <input type="text" class="form-control" id="resposta" placeholder="Digite aqui...">
+                    </div>
+                    <button type="button" class="btn btn-warning" onclick="verifica()">Executar</button>
+                </form>
+                <br>
+                <br>
+                <p id="feedback"></p>
+                <br>
+                <br>
+                <a href="4.html"><button id="proximo" type="button" class="btn btn-secondary">Avançar</button></a>
+                <br>
+                <br>
+            </div>
+            <div class="col-3">
+                <p class="pontuacao">
+                    Pontuação:
+                    <br>
+                    <i id="pontos">0</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function verifica() {
+            var resposta = document.getElementById('resposta').value
+            resposta = resposta.toUpperCase()
+            if (resposta == 'SHOW TABLES;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tabelas em Pasta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Instrucoes</th>                            
+                        </tr>
+                        <tr>
+                            <th>Suspeitos</th>
+                        </tr>
+                        <tr>
+                            <th>Depoimentos</th>
+                        </tr>
+                        <tr>
+                            <th>Locais</th>
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'DESCRIBE INSTRUCOES;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Instrucoes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Campo</th>                            
+                            <th>Tipo</th>                            
+                            <th>Null</th>                            
+                            <th>Chave</th>                            
+                            <th>Default</th>                            
+                            <th>Extra</th>                            
+                        </tr>
+                        <tr>
+                            <th>ID_instrucoes</th>                            
+                            <th>INT</th>                            
+                            <th>NO</th>                            
+                            <th>PRI</th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>nome_caso</th>                            
+                            <th>varchar(500)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>descricao_caso</th>                            
+                            <th>varchar(500)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'DESCRIBE SUSPEITOS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Suspeitos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Campo</th>                            
+                            <th>Tipo</th>                            
+                            <th>Null</th>                            
+                            <th>Chave</th>                            
+                            <th>Default</th>                            
+                            <th>Extra</th>                            
+                        </tr>
+                        <tr>
+                            <th>ID_suspeito</th>                            
+                            <th>INT</th>                            
+                            <th>NO</th>                            
+                            <th>PRI</th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>nome_suspeito</th>                            
+                            <th>varchar(30)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>descricao_pessoa</th>                            
+                            <th>varchar(300)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'DESCRIBE DEPOIMENTOS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">DEPOIMENTOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Campo</th>                            
+                            <th>Tipo</th>                            
+                            <th>Null</th>                            
+                            <th>Chave</th>                            
+                            <th>Default</th>                            
+                            <th>Extra</th>                            
+                        </tr>
+                        <tr>
+                            <th>ID_depoimento</th>                            
+                            <th>INT</th>                            
+                            <th>NO</th>                            
+                            <th>PRI</th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>ID_suspeito</th>                            
+                            <th>INT</th>                            
+                            <th>NO</th>                            
+                            <th>FK</th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>depoimento_suspeito</th>                            
+                            <th>varchar(1500)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'DESCRIBE LOCAIS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Locais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Campo</th>                            
+                            <th>Tipo</th>                            
+                            <th>Null</th>                            
+                            <th>Chave</th>                            
+                            <th>Default</th>                            
+                            <th>Extra</th>                            
+                        </tr>
+                        <tr>
+                            <th>ID_locais</th>                            
+                            <th>INT</th>                            
+                            <th>NO</th>                            
+                            <th>PRI</th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>nome_local</th>                            
+                            <th>varchar(30)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'DESCRIBE LOCAIS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Locais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Campo</th>                            
+                            <th>Tipo</th>                            
+                            <th>Null</th>                            
+                            <th>Chave</th>                            
+                            <th>Default</th>                            
+                            <th>Extra</th>                            
+                        </tr>
+                        <tr>
+                            <th>ID_locais</th>                            
+                            <th>INT</th>                            
+                            <th>NO</th>                            
+                            <th>PRI</th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                        <tr>
+                            <th>nome_local</th>                            
+                            <th>varchar(30)</th>                            
+                            <th>NO</th>                            
+                            <th></th>                            
+                            <th>NULL</th>                            
+                            <th></th>                            
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'SELECT * FROM INSTRUCOES;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Instrucoes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ID_instrucoes</th>                            
+                            <th>nome_caso</th>                            
+                            <th>descricao_caso</th>                            
+                        </tr>
+                        <tr>
+                            <th>1</th>                            
+                            <th>Sua secretária mentiu?</th>                            
+                            <th>Na sexta-feira, dia 20/08/2021, sua secretária não chegou ao trabalho.
+                                <br>
+                                Você suspeita que ela está fugindo do trabalho.
+                                <br>
+                                Sua secretária, Maria, desejava viajar para o casamento da irmã no final de semana.
+                                <br>
+                                Você argumentou que haveria tempo para a viagem, se ela saísse logo após o final do turno da tarde.
+                                <br>
+                                Ela insistiu que precisaria de mais tempo. E justamente hoje ela não veio...
+                                <br>
+                                Sua missão é investigar: Sua secretária mentiu?
+                                <br>
+                                Como não houve nenhum atestado, até o momento, o delegado levantou alguns depoimentos para lhe ajudar.
+                            </th>                            
+                        </tr>
+                    </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'SELECT * FROM SUSPEITOS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Suspeitos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ID_suspeito</th>                            
+                            <th>nome_suspeito</th>                            
+                            <th>descricao_pessoa</th>                            
+                        </tr>
+                        <tr>
+                            <th>1</th>                            
+                            <th>Maria</th>                            
+                            <th>
+                                Idade: 25 anos;<br>
+                                Atuação: Secretária; <br>
+                                Aparência: Mulher, jovem, cabelos presos, usa óculos;
+                            </th>                            
+                        </tr>
+                        <tr>
+                            <th>2</th>                            
+                            <th>Joana</th>                            
+                            <th>
+                                Idade: 32 anos;<br>
+                                Atuação: Noiva; <br>
+                                Aparência: Mulher, vestida de noiva, expressão de raiva;
+                            </th>                            
+                        </tr>
+                        <tr>
+                            <th>3</th>                            
+                            <th>Joacir</th>                            
+                            <th>
+                                Idade: 62 anos;<br>
+                                Atuação: Médico; <br>
+                                Aparência: Homem, idoso, sem cabelos, usa óculos;
+                            </th>                            
+                        </tr>
+                        <tr>
+                            <th>4</th>                            
+                            <th>Antônio</th>                            
+                            <th>
+                                Idade: 47 anos;<br>
+                                Atuação: Vizinho de Maria; Autônomo; <br>
+                                Aparência: Homem, olhar de pessoa curiosa;
+                            </th>                            
+                        </tr>
+                        </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == 'SELECT * FROM LOCAIS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Locais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ID_locais</th>                            
+                            <th>nome_local</th>                            
+                        </tr>
+                        <tr>
+                            <th>1</th>                            
+                            <th>Igreja, Casamento de Joada</th>                            
+                        </tr>
+                        <tr>
+                            <th>2</th>                            
+                            <th>Clínima de Pronto Socorro</th>                            
+                        </tr>
+                        <tr>
+                            <th>3</th>                            
+                            <th>Vizinhança de Maria</th>                            
+                        </tr>
+                        </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            }
+            else if (resposta == 'SELECT * FROM DEPOIMENTOS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Depoimentos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ID_depoimento</th>                            
+                            <th>ID_suspeito</th>                            
+                            <th>depoimento_suspeito</th>                            
+                        </tr>
+                        <tr>
+                            <th>1</th>                            
+                            <th>1</th>                            
+                            <th>
+                                Não há registros, afinal a pessoa está desaparecida.
+                            </th>                            
+                        </tr>
+                        <tr>
+                            <th>2</th>                            
+                            <th>2</th>                            
+                            <th>
+                                Eu NÃO quero nem ouvir falar da Maria, não foi ao meu casamento e agora a polícia parou a cerimônia para me entrevistar?
+                                <br>
+                                Que mundo é esse!? Se ela tivesse vindo aqui eu ficaria feliz, porém ela não veio, então me deixem fazer meu casamento, depois me preocupo com ela.
+                                <br>
+                            </th>                            
+                        </tr>
+                        <tr>
+                            <th>3</th>                            
+                            <th>3</th>                            
+                            <th>
+                                Sim, hoje tive atendimentos com pelo menos 3 jovens que batem com a descrição. Mas com a idade não me lembro mais dos nomes... Sabe? É hora de me aposentar.
+                                <br>
+                                Fiz plantão na emergência, mas já dei alta para todos os pacientes.
+                                <br>
+                                No meu prontuário: 1 das jovens que atendi estava correndo quando caiu e bateu a cabeça forte. Reclamou de dores e veio até mim. Ela estava confusa, não lembrava de muitas coisas.
+                                <br>
+                                Outra jovem somente apareceu pois queria trocar seu óculos.
+                                <br>
+                                A última estava com uma dor de barriga terrível. Fez soro e voltou para casa.
+                            </th>                            
+                        </tr>
+                        <tr>
+                            <th>4</th>                            
+                            <th>4</th>                            
+                            <th>
+                                Ah, perguntaram para a pessoa certa.<br>
+                                Sabe... Eu acompanho essa menina, ela diz que trabalha na polícia... <br>
+                                NUNCA acreditei, agora vocês estão buscando por ela, ela vai ser presa? <br> 
+                                Pois eu tenho certeza que essa menina fez algo de errado! <br>
+                                Hoje mesmo, ouvi passos acelerados, até que ouve um estrondo, com certeza ela deve ter jogado alguém no chão!
+                                <br> E então um silêncio por tempo e logo depois ela saiu cambaleando e não voltou mais.
+                            </th>                            
+                        </tr>
+                        </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            }
+            else {
+                alert('Tente novamente!')
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) - 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+            }
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

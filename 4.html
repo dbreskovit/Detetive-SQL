@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Caso 01</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Play', sans-serif;
+        }
+
+        .pontuacao {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin-right: 5%;
+        }
+    </style>
+    <script>
+        function esconder() {
+            document.getElementById('proximo').style.display = 'none'
+            document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+            sessionStorage.setItem('controle', 0)
+        }
+    </script>
+</head>
+
+<body onload="esconder()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center h2 p-4">Caso 01: Sua secretária mentiu?</div>
+            <div class="col-12 text-center pt-1">
+                <img src="img/5aef3b0137ec83f.png" alt="Arte que o detetive e a secretária" width="40%"
+                    class="img-fluid rounded">
+            </div>
+            <div class="col-3"></div>
+            <div class="col-6">
+                <p class="pt-4 text-left">
+                    Relatório:
+                    <br>
+                    Para inserir dados em uma tabela nós utilizamos um comandos chamado: <code>INSERT INTO</code>.
+                    <br>
+                    Observe a tabela que será preenchida:
+                    <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Relatorio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ID_relatório</th>
+                        </tr>
+                        <tr>
+                            <th>Maria mentiu?</th>
+                        </tr>
+                        <tr>
+                            <th>Qual foi o último local em que ela esteve?</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                Com base nessas informações o delegado conseguirá mobilizar as equipes de busca e informar o que houve.
+                <br>
+                O comando para inserção de dados possuí atributos para seu preenchimento:
+                <br>
+                <code>INSERT INTO Relatorio(`Maria mentiu?`, `Qual foi o último local em que ela esteve?`) VALUES ('Sim ou Não', ID do Local, que pode ser visualizado novamente através do comando);</code>
+                <br>
+                Observação: Cuidado com a acentuação, ela é importante neste caso.
+                <br>
+                Exemplo <b>fictício</b> preenchido de <code>INSERT INTO</code>:
+                <br>
+                <code>INSERT INTO Relatorio(`Maria mentiu?`, `Qual foi o último local em que ela esteve?`) VALUES ('Não', 1);</code>
+                <br>
+                Hora de preencher seu relatório:
+                <br>
+                </p>
+                <form id="formulario">
+                    <div class="form-group">
+                        <label for="resposta">Query:</label>
+                        <input type="text" class="form-control" id="resposta" placeholder="Digite aqui...">
+                    </div>
+                    <button type="button" class="btn btn-warning" onclick="verifica()">Executar</button>
+                </form>
+                <br>
+                <br>
+                <p id="feedback"></p>
+                <br>
+                <br>
+                <a href="5.html"><button id="proximo" type="button" class="btn btn-secondary">Avançar</button></a>
+                <br>
+                <br>
+            </div>
+            <div class="col-3">
+                <p class="pontuacao">
+                    Pontuação:
+                    <br>
+                    <i id="pontos">0</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function verifica() {
+
+            var resposta = document.getElementById('resposta').value
+            resposta = resposta.toUpperCase()
+            if (resposta == 'SELECT * FROM LOCAIS;') {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Informações recuperadas com sucesso!
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Locais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ID_locais</th>                            
+                            <th>nome_local</th>                            
+                        </tr>
+                        <tr>
+                            <th>1</th>                            
+                            <th>Igreja, Casamento de Joada</th>                            
+                        </tr>
+                        <tr>
+                            <th>2</th>                            
+                            <th>Clínima de Pronto Socorro</th>                            
+                        </tr>
+                        <tr>
+                            <th>3</th>                            
+                            <th>Vizinhança de Maria</th>                            
+                        </tr>
+                        </tbody>
+                </table>    
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else if (resposta == "INSERT INTO RELATORIO(`MARIA MENTIU?`, `QUAL FOI O ÚLTIMO LOCAL EM QUE ELA ESTEVE?`) VALUES ('NÃO', 2);") {
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) + 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                document.getElementById('feedback').innerHTML = `
+                Relatório enviado para avaliação e aprovado!
+                <br>
+                `
+                document.getElementById('proximo').style.display = 'inline-block'
+            } else {
+                alert('Relatório não foi submetido corretamente! Tente novamente!')
+                sessionStorage.setItem('controle', parseInt(sessionStorage.getItem('controle')) + 1)
+                sessionStorage.setItem('pontos', parseInt(sessionStorage.getItem('pontos')) - 10)
+                document.getElementById('pontos').innerText = sessionStorage.getItem('pontos')
+                if (parseInt(sessionStorage.getItem('controle')) == 2) {
+                    alert('Número de tentativas esgotado!')
+                    document.getElementById('proximo').style.display = 'inline-block'
+                    document.getElementById('formulario').style.display = 'none'
+                }
+            }
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
