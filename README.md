@@ -27,7 +27,7 @@
 
 <br />
 
-# 🧪 Technologies
+## 🧪 Technologies
 
 - [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
@@ -37,7 +37,7 @@
   <img src=".github/preview.gif" width="100%">
 </h3>
 
-# 🚀 Getting started
+## 🚀 Getting started
 
 Clone the project and access the folder.
 
@@ -53,7 +53,7 @@ OR:
 $ start https://dbreskovit.github.io/detetive-sql/
 ```
 
-# 🦄 Authors
+## 🦄 Authors
 
 <table>
   <tr>
