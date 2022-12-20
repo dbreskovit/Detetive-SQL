@@ -29,9 +29,9 @@
 
 ## 🧪 Technologies
 
-- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- <img src=".github/resources/icons/html.svg" width="15"> | [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- <img src=".github/resources/icons/css.svg" width="15"> | [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- <img src=".github/resources/icons/js.svg" width="15"> | [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 <h3 align="center">
   <img src=".github/preview.gif" width="100%">
