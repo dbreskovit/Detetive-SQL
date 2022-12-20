@@ -45,8 +45,8 @@ Clone the project and access the folder.
 $ git clone https://github.com/dbreskovit/detetive-sql
 $ cd detetive-sql
 
-> start index.html #For Windows Users
-> open index.html #For Linux/Mac Users
+$ start index.html #For Windows Users
+$ open index.html #For Linux/Mac Users
 ```
 
 OR:
