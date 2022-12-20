@@ -17,7 +17,6 @@
     <img alt="Twitter: @uianes" src="https://img.shields.io/twitter/follow/uianes.svg?style=for-the-badge&labelColor=1C1E26&color=9644CD&logo=twitter">
   </a>
 
-
  <!-- Forks -->
  <img src="https://img.shields.io/github/forks/Uianes/detetive-sql?&logo=Forks&style=for-the-badge&labelColor=1C1E26&color=9644CD">
 
