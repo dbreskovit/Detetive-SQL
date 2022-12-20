@@ -31,7 +31,7 @@
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 <h3 align="center">
-  <img src=".github/preview.gif">
+  <img src=".github/preview.gif" width="100%">
 </h3>
 
 # 🚀 Getting started
