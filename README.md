@@ -58,20 +58,20 @@ $ start https://dbreskovit.github.io/detetive-sql/
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/Uianes" style="text-decoration: none;color: #9644CD;">
-              <img src="https://unavatar.now.sh/github/Uianes" width="100px"/>
-            <br>
-        <sub>
-          <b>Uianes</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
       <a href="https://github.com/dbreskovit" style="text-decoration: none;color: #9644CD;">
               <img src="https://unavatar.now.sh/github/dbreskovit" width="100px"/>
             <br>
         <sub>
           <b>Diego</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Uianes" style="text-decoration: none;color: #9644CD;">
+              <img src="https://unavatar.now.sh/github/Uianes" width="100px"/>
+            <br>
+        <sub>
+          <b>Uianes</b>
         </sub>
       </a>
     </td>
