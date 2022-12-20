@@ -30,9 +30,9 @@
 - [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-<br>
-
-<img src=".github/preview.gif" width="100%">
+<h3 align="center">
+  <img src=".github/preview.gif">
+</h3>
 
 # 🚀 Getting started
 
