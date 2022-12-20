@@ -40,8 +40,8 @@
 Clone the project and access the folder.
 
 ```bash
-$ git clone https://github.com/dbreskovit/Discord-Bot
-$ cd Discord-Bot
+$ git clone https://github.com/dbreskovit/detetive-sql
+$ cd detetive-sql
 ```
 
 OR:
