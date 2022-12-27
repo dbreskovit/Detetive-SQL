@@ -21,7 +21,7 @@
  <img src="https://img.shields.io/github/forks/Uianes/detetive-sql?&logo=Forks&style=for-the-badge&labelColor=1C1E26&color=9644CD">
 
  <!-- Stars -->
- <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/dbreskovit/The-Quiz?style=for-the-badge&labelColor=1C1E26&color=9644CD">
+ <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/dbreskovit/Detetive-SQL?style=for-the-badge&labelColor=1C1E26&color=9644CD">
 
 </h3>
 
@@ -42,8 +42,8 @@
 Clone the project and access the folder.
 
 ```bash
-$ git clone https://github.com/dbreskovit/detetive-sql
-$ cd detetive-sql
+$ git clone https://github.com/dbreskovit/Detetive-SQL
+$ cd Detetive-SQL
 
 $ start index.html #For Windows Users
 $ open index.html #For Linux/Mac Users
@@ -53,7 +53,7 @@ OR:
 
 ```bash
 # Access the project online
-$ start https://dbreskovit.github.io/detetive-sql/
+$ start https://dbreskovit.github.io/Detetive-SQL/
 ```
 
 ## 🦄 Authors
